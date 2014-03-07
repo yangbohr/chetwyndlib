@@ -1,6 +1,8 @@
 Myblog::Application.routes.draw do
+  resources :blogs
+  root 'blogs#my_home_page'
   # The priority is based upon order of creation: first created -> highest priority.
-  get 'test' => 'application#test'
+
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
