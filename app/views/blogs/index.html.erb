@@ -1,0 +1,38 @@
+<div class='container blog-index'>
+<h1>Listing blogs</h1>
+<table class='blogs'>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Author</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+</table>
+    <% @blogs.each do |blog| %>
+     <div class='row'>
+     <div class='col-md-3'>
+        <%= blog.title %>
+     </div>
+     <div class='col-md-3'>
+        <%= blog.created_at.to_date %>
+     </div>
+     </div>
+     <div class='row'>
+     <div class='col-md-10'>
+     <p>
+        <%= blog.content %>
+     </p>
+        <%= link_to 'Show', blog %> 
+     </div>
+     </div>
+
+    <% end %>
+
+<br>
+
+<%= link_to 'New Blog', new_blog_path %>
+</div>
