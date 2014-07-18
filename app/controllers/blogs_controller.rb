@@ -5,8 +5,9 @@ class BlogsController < ApplicationController
   # GET /blogs.json
 
   def my_home_page
-
+    @blogs = Blog.limit(3)
   end
+
   def index
     @blogs = Blog.all
   end

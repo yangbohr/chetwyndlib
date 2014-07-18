@@ -1,6 +1,7 @@
 Myblog::Application.routes.draw do
   resources :blogs
   root 'blogs#my_home_page'
+  get 'vault' => 'vaults#bootstrap_grid' 
   # The priority is based upon order of creation: first created -> highest priority.
 
   # See how all your routes lay out with "rake routes".
