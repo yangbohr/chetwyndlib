@@ -40,7 +40,7 @@ class DrawingsController < ApplicationController
   # POST /drawings.json
   def create
     @drawing = Drawing.new(drawing_params)
-
+    binding.pry
     respond_to do |format|
       if @drawing.save
         format.html { redirect_to @drawing, notice: 'Drawing was successfully created.' }

@@ -9,65 +9,80 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+<% end %>
 
-  <div class="field">
-    <%= f.label :discipline %><br>
-    <%= f.text_field :discipline %>
-  </div>
-  <div class="field">
-    <%= f.label :order %><br>
-    <%= f.number_field :order %>
-  </div>
-  <div class="field">
-    <%= f.label :tembec_drawing %><br>
-    <%= f.text_field :tembec_drawing %>
-  </div>
-  <div class="field">
-    <%= f.label :vender %><br>
-    <%= f.text_field :vender %>
-  </div>
-  <div class="field">
-    <%= f.label :vendor_drawing_number %><br>
-    <%= f.text_field :vendor_drawing_number %>
-  </div>
-  <div class="field">
-    <%= f.label :sheet_number %><br>
-    <%= f.text_field :sheet_number %>
-  </div>
-  <div class="field">
-    <%= f.label :revision %><br>
-    <%= f.number_field :revision %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_area :title %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :equipment_number %><br>
-    <%= f.text_field :equipment_number %>
-  </div>
-  <div class="field">
-    <%= f.label :cad %><br>
-    <%= f.check_box :cad %>
-  </div>
-  <div class="field">
-    <%= f.label :paper %><br>
-    <%= f.check_box :paper %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br>
-    <%= f.text_area :notes %>
-  </div>
-  <div class="field">
-    <%= f.label :hanging %><br>
-    <%= f.check_box :hanging %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class='form_drawing'>
+<div class='col-xs-2 form_discipline form_drawing_discipline'>
+  <span>Discipline</span>
+  <select class='form-control' name="drawing[discipline]">
+    <option>Electrical</option>
+    <option>Mechanical</option>
+    <option>Arrangement</option>
+    <option>Civil</option>
+    <option>Instrumentation</option>
+    <option>P&ID</option>
+    <option>Piping</option>
+    <option>Structural</option>
+    <option>Others</option>
+  </select>
+</div>
+
+<div class="input-group drawing-form-order-input">
+  <input type="text" class="form-control" name='drawing[title]' placeholder="Title">
+</div>
+  
+<div class="input-group drawing-form-order-input">
+  <input type="text" class="form-control" name='drawing[area]' placeholder="Area Number Format eg. 504-231">
+</div>
+
+<div class="input-group drawing-form-order-input">
+  <input type="text" class="form-control" name='drawing[order]' placeholder="Order Number Format eg. 504-231">
+</div>
+
+<div class="input-group drawing-form-order-input">
+  <input type="text" class="form-control" name='drawing[tembec_drawing]' placeholder="Tembec Drawing Number Format eg. 504-231">
+</div>
+
+<div class="input-group drawing-form-order-input">
+  <input type="text" class="form-control" name='drawing[vendor]' placeholder="Vendor Name">
+</div>
+
+<div class="input-group drawing-form-order-input">
+  <input type="text" class="form-control" name='drawing[vendor_drawing_number]' placeholder="Vendor Drawing Number">
+</div>
+
+<div class="input-group drawing-form-order-input">
+  <input type="text" class="form-control" name='drawing[sheet_number]' placeholder="Sheet Number">
+</div>
+
+<div class="input-group drawing-form-order-input">
+  <input type="text" class="form-control" name='drawing[revision]' placeholder="Revision">
+</div>
+
+<div class="input-group drawing-form-order-input">
+  <input type="text" class="form-control" name='drawing[equipment_number]' placeholder="Equipment Number">
+</div>
+
+<div class="input-group drawing-form-order-input">
+  <input type="text" class="form-control" name='drawing[note]' placeholder="Note">
+</div>
+
+<div class="field">
+  <%= f.label :cad %><br>
+  <%= f.file_field :cad %>
+</div>
+
+<div class="field">
+  <%= f.label :paper %><br>
+  <%= f.check_box :paper %>
+</div>
+
+<div class="field">
+  <%= f.label :hanging %><br>
+  <%= f.check_box :hanging %>
+</div>
+
+<input type='Submit' value='Create' class="btn btn-primary drawing-submit"></input>
+</div>
+
 <% end %>

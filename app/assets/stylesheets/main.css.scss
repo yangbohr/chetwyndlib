@@ -17,12 +17,22 @@
   width:60%;
   margin-left: -30px;
   margin-top: 15px;
-  margin-bottom: -15px
+}
+
+.form-group {
+  margin-top: -5px;
 }
 
 .search-space {
-  float:left;
+  margin-left: 15px;
   width: 40% 
+}
+
+.pagination {
+}
+
+.page-bar {
+  clear:both;
 }
 
 .search-submit {
@@ -48,4 +58,12 @@
 .search-page {
   padding-top:50px;
   margin-bottom:30px;
+}
+
+.form_drawing {
+  font-family: "Times New Roman", Georgia, Serif;
+}
+
+.form_discipline {
+  font-size: 150%;
 }
