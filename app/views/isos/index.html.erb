@@ -1,0 +1,29 @@
+<h1>Listing isos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Tage</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @isos.each do |iso| %>
+      <tr>
+        <td><%= iso.title %></td>
+        <td><%= iso.tage %></td>
+        <td><%= link_to 'Show', iso %></td>
+        <td><%= link_to 'Edit', edit_iso_path(iso) %></td>
+        <td><%= link_to 'Destroy', iso, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Iso', new_iso_path %>

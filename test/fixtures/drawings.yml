@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  discipline: MyString
+  order: 1
+  tembec_drawing: MyString
+  vender: MyString
+  vendor_drawing_number: MyString
+  sheet_number: MyString
+  revision: 1
+  title: MyText
+  date: 2014-08-18
+  equipment_number: MyString
+  cad: false
+  paper: false
+  notes: MyText
+  hanging: false
+
+two:
+  discipline: MyString
+  order: 1
+  tembec_drawing: MyString
+  vender: MyString
+  vendor_drawing_number: MyString
+  sheet_number: MyString
+  revision: 1
+  title: MyText
+  date: 2014-08-18
+  equipment_number: MyString
+  cad: false
+  paper: false
+  notes: MyText
+  hanging: false

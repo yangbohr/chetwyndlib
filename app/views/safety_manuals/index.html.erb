@@ -1,0 +1,27 @@
+<h1>Listing safety_manuals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @safety_manuals.each do |safety_manual| %>
+      <tr>
+        <td><%= safety_manual.title %></td>
+        <td><%= link_to 'Show', safety_manual %></td>
+        <td><%= link_to 'Edit', edit_safety_manual_path(safety_manual) %></td>
+        <td><%= link_to 'Destroy', safety_manual, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Safety manual', new_safety_manual_path %>

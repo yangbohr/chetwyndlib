@@ -3,10 +3,18 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 ruby '2.0.0'
 gem 'rails', '4.0.2'
-
+gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
+gem "paperclip", "~> 4.1"
+gem 'pry'
 # Use sqlite3 as the database for Active Record
+gem 'sunspot_rails'
+# This is an optional packaged Solr:
+ group :test, :development do
+   gem 'sunspot_solr'
+ end
 gem 'pg'
-
+gem 'spreadsheet', '~> 0.9.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

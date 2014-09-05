@@ -1,0 +1,31 @@
+<h1>Listing catalogues</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Company</th>
+      <th>Year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @catalogues.each do |catalogue| %>
+      <tr>
+        <td><%= catalogue.title %></td>
+        <td><%= catalogue.company %></td>
+        <td><%= catalogue.year %></td>
+        <td><%= link_to 'Show', catalogue %></td>
+        <td><%= link_to 'Edit', edit_catalogue_path(catalogue) %></td>
+        <td><%= link_to 'Destroy', catalogue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Catalogue', new_catalogue_path %>

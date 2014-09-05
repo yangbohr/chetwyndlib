@@ -1,0 +1,57 @@
+<h1>Engineering Drawings</h1>
+
+<table class='table drawing table-striped'>
+  <thead>
+    <tr>
+      <th><%= link_to 'Discipline', drawings_path(order: 'discipline') %></th>
+      <th><%= link_to 'Area', drawings_path(order: 'area')%></th>
+      <th><%= link_to 'Order', drawings_path(order: 'order') %></th>
+      <th><%= link_to 'Tembec drawing', drawings_path(order: 'tembec_drawing') %></th>
+      <th><%= link_to 'Vendor', drawings_path(order: 'vender')%></th>
+      <th>Revision</th>
+      <th><%= link_to 'Title', drawings_path(order: 'title') %></th>
+      <th><%= link_to 'Date', drawings_path(order: 'date') %></th>
+      <th><%= link_to 'Equipment Number', drawings_path(order: 'equipment_number') %></th>
+      <th>Cad</th>
+      <th>Paper</th>
+      <th>Notes</th>
+      <th>Hanging</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @drawings.each do |drawing| %>
+      <tr>
+        <td><%= drawing.discipline %></td>
+        <td><%= drawing.area %></td>
+        <td><%= drawing.order %></td>
+        <td><%= drawing.tembec_drawing %></td>
+        <td><%= drawing.vender %></td>
+        <td><%= drawing.revision %></td>
+        <td><%= drawing.title %></td>
+        <td><%= drawing.date %></td>
+        <td><%= drawing.equipment_number %></td>
+        <td><%= if drawing.cad 
+                  link_to 'Download', new_attachment_path    
+                else 
+                  link_to 'Upload', new_attachment_path    
+                end %></td>
+        <td><%= drawing.paper %></td>
+        <td><%= drawing.notes %></td>
+        <td><%= drawing.hanging %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+  <div><%= link_to 'Add A New Drawing', new_drawing_path, :class => "btn btn-primary dropdown-toggle" %></div>
+  <div class='search-bar'><form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" name='search' class="form-control search-space" placeholder="Search" value='<%= params[:search]%>'>
+          <button type="submit" class="btn btn-default search-submit">Search</button>
+        </div>
+        </form></div>
+  <%= will_paginate @drawings, renderer: BootstrapPagination::Rails %>
+</table>
+
+<br>
+

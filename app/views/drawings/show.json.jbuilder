@@ -1,0 +1,1 @@
+json.extract! @drawing, :id, :discipline, :order, :tembec_drawing, :vender, :vendor_drawing_number, :sheet_number, :revision, :title, :date, :equipment_number, :cad, :paper, :notes, :hanging, :created_at, :updated_at

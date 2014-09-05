@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: MyString
+  year: 2014-08-18
+  title: MyString
+  description: MyText
+  prepared_by: MyString
+  area: MyString
+
+two:
+  company: MyString
+  year: 2014-08-18
+  title: MyString
+  description: MyText
+  prepared_by: MyString
+  area: MyString
