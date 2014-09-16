@@ -18,7 +18,7 @@
       <li class=<%= 'active' if controller_name == 'search' %>><%= link_to 'Search', search_path %></li>
       <li class=<%= 'active' if action_name == 'bootstrap_grid' %>><%= link_to 'Users', users_path %></li>
       <li><a href="#">Contact</a></li>
-      <li class='user-profile'><%= link_to "Sign Out #{current_user.email}",destroy_user_session_path %></li>
+      <li class='user-profile'><%= link_to "Sign Out #{current_user}", destroy_user_session_url, method: 'delete' %></li>
       </ul>
     </div>
 
