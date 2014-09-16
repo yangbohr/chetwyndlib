@@ -23,6 +23,9 @@
   margin-top: -5px;
 }
 
+.drop-down {
+  width: 30%;
+}
 .search-space {
   margin-left: 15px;
   width: 40% 
@@ -44,15 +47,23 @@
 }
 
 .search-page-bar {
-  margin-left: 150px;
-  margin-right: 150px
+  width:100%;
+  padding-left: 150px;
+  padding-right: 150px;
 }
 
+.search-page-type {
+  width:20%;
+}
+
+.search-page-list {
+  li {
+    padding-left:10px;
+  }
+}
 
 .search-page-submit {
-  width:80px;
-  margin:auto;
-  margin-bottom:20px
+  margin-bottom:30px
 }
 
 .search-page {
@@ -62,8 +73,17 @@
 
 .form_drawing {
   font-family: "Times New Roman", Georgia, Serif;
+  width:100%;
+  .title {
+    width: 30%
+  }
 }
 
 .form_discipline {
   font-size: 150%;
+}
+
+.user-profile {
+  margin-left:20em;
+
 }

@@ -1,88 +1,163 @@
 <%= form_for(@drawing) do |f| %>
-  <% if @drawing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@drawing.errors.count, "error") %> prohibited this drawing from being saved:</h2>
+    <% if @drawing.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@drawing.errors.count, "error") %> prohibited this drawing from being saved:</h2>
 
-      <ul>
-      <% @drawing.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @drawing.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div>
+      <table class='form_drawing'>
+        <tr>
+          <td class='title' >Discipline</td>
+          <td >
+            <select class='form-control drop-down' name="drawing[discipline]">
+              <option>Electrical</option>
+              <option>Mechanical</option>
+              <option>Arrangement</option>
+              <option>Civil</option>
+              <option>Instrumentation</option>
+              <option>P&ID</option>
+              <option>Piping</option>
+              <option>Structural</option>
+              <option>Others</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td class='title' >Title</td>
+          <td>
+            <div class="input-group drawing-form-order-input">
+              <input type="text" class="form-control input-bar" name='drawing[title]' placeholder="Title" value='<%= @drawing.title %>'>
+            </div>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td class='title' >Area Number (Format eg. 504-231)</td>
+          <td>
+            <div class="input-group drawing-form-order-input">
+              <input type="text" class="form-control" name='drawing[area]' placeholder="Area Number Format eg. 504-231" value='<%= @drawing.area %>'>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class='title' >Order Number (Format eg. 504)</td>
+          <td>
+          <div class="input-group drawing-form-order-input">
+            <input type="text" class="form-control" name='drawing[order]' placeholder="Order Number Format eg. 504-231" value='<%= @drawing.draft_order %>'>
+          </div>
+          </td>
+        </tr>
+
+        <tr>
+        <td class='title' >Tembec Drawing Number (Format eg. 100-1000)</td>
+          <td>
+        <div class="input-group drawing-form-order-input">
+          <input type="text" class="form-control" name='drawing[tembec_drawing]' placeholder="Tembec Drawing Number Format eg. 504-231" value='<%= @drawing.tembec_drawing %>'>
+        </div>
+         </td>
+        </tr>
+
+
+        <tr>
+          <td class='title' >Vendor Name</td>
+          <td>
+        <div class="input-group drawing-form-order-input">
+          <input type="text" class="form-control" name='drawing[vender]' placeholder="Vendor Name" value='<%= @drawing.vender %>'>
+        </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class='title' >Vendor Drawing Number</td>
+          <td>
+        <div class="input-group drawing-form-order-input">
+          <input type="text" class="form-control" name='drawing[vendor_drawing_number]' placeholder="Vendor Drawing Number" value='<%= @drawing.vendor_drawing_number %>'>
+        </div>
+          </td>
+         </tr>
+
+        <tr>
+          <td class='title' >Sheet Number</td>
+          <Td>
+        <div class="input-group drawing-form-order-input">
+          <input type="text" class="form-control" name='drawing[sheet_number]' placeholder="Sheet Number" value='<%= @drawing.sheet_number %>'>
+        </div>
+          </Td>
+        </tr>
+
+        <tr>
+          <td class='title' >Revision</td>
+          <td>
+        <div class="input-group drawing-form-order-input">
+          <input type="text" class="form-control" name='drawing[revision]' placeholder="Revision" value='<%= @drawing.revision %>'>
+        </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class='title' >Equipment Number</td>
+          <td>
+        <div class="input-group drawing-form-order-input">
+          <input type="text" class="form-control" name='drawing[equipment_number]' placeholder="Equipment Number" value='<%= @drawing.equipment_number %>'>
+        </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class='title' >Notes</td>
+          <td>
+        <div class="input-group drawing-form-order-input">
+          <input type="text" class="form-control" name='drawing[notes]' placeholder="Notes" value='<%= @drawing.notes %>'>
+        </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class='title' >Location In The Library</td>
+          <td>
+        <div class="input-group drawing-form-order-input">
+          <input type="text" class="form-control" name='drawing[paper]' placeholder="Location in the Library" value='<%= @drawing.paper %>'>
+        </div>
+          </td>
+        </tr>
+
+        <tr>
+          <Td class='title' >AutoCad File</Td>
+          <td>
+        <div class="field">
+          <b> AutoCad </b>
+          <%= f.label :attachment %>
+          <br>
+          <% if @drawing.attachment.present? %>
+              <%= link_to "Current File #{@drawing.attachment_file_name}", @drawing.attachment.url(:original, false) %>
+              </br>
+              or Replace with New File
+          <% end %>
+          <%= f.file_field :attachment %>
+        </div>
+        </br>
+        <div class="field">
+          <%= f.label :hanging %>
+          <br>
+          <%= f.check_box :hanging %>
+        </div>
+          </td>
+        </tr>
+
+        <tr>
+          <Td><input type='Submit' value='Create' class="btn btn-primary drawing-submit"></input> <%= link_to 'Back', drawings_path, class:  "btn btn-primary drawing-submit"%></td>
+        </tr>
+      </table>
     </div>
-<% end %>
-
-<div class='form_drawing'>
-<div class='col-xs-2 form_discipline form_drawing_discipline'>
-  <span>Discipline</span>
-  <select class='form-control' name="drawing[discipline]">
-    <option>Electrical</option>
-    <option>Mechanical</option>
-    <option>Arrangement</option>
-    <option>Civil</option>
-    <option>Instrumentation</option>
-    <option>P&ID</option>
-    <option>Piping</option>
-    <option>Structural</option>
-    <option>Others</option>
-  </select>
-</div>
-
-<div class="input-group drawing-form-order-input">
-  <input type="text" class="form-control" name='drawing[title]' placeholder="Title">
-</div>
-  
-<div class="input-group drawing-form-order-input">
-  <input type="text" class="form-control" name='drawing[area]' placeholder="Area Number Format eg. 504-231">
-</div>
-
-<div class="input-group drawing-form-order-input">
-  <input type="text" class="form-control" name='drawing[order]' placeholder="Order Number Format eg. 504-231">
-</div>
-
-<div class="input-group drawing-form-order-input">
-  <input type="text" class="form-control" name='drawing[tembec_drawing]' placeholder="Tembec Drawing Number Format eg. 504-231">
-</div>
-
-<div class="input-group drawing-form-order-input">
-  <input type="text" class="form-control" name='drawing[vendor]' placeholder="Vendor Name">
-</div>
-
-<div class="input-group drawing-form-order-input">
-  <input type="text" class="form-control" name='drawing[vendor_drawing_number]' placeholder="Vendor Drawing Number">
-</div>
-
-<div class="input-group drawing-form-order-input">
-  <input type="text" class="form-control" name='drawing[sheet_number]' placeholder="Sheet Number">
-</div>
-
-<div class="input-group drawing-form-order-input">
-  <input type="text" class="form-control" name='drawing[revision]' placeholder="Revision">
-</div>
-
-<div class="input-group drawing-form-order-input">
-  <input type="text" class="form-control" name='drawing[equipment_number]' placeholder="Equipment Number">
-</div>
-
-<div class="input-group drawing-form-order-input">
-  <input type="text" class="form-control" name='drawing[note]' placeholder="Note">
-</div>
-
-<div class="field">
-  <%= f.label :cad %><br>
-  <%= f.file_field :cad %>
-</div>
-
-<div class="field">
-  <%= f.label :paper %><br>
-  <%= f.check_box :paper %>
-</div>
-
-<div class="field">
-  <%= f.label :hanging %><br>
-  <%= f.check_box :hanging %>
-</div>
-
-<input type='Submit' value='Create' class="btn btn-primary drawing-submit"></input>
-</div>
 
 <% end %>

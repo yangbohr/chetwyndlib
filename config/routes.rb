@@ -1,4 +1,9 @@
 Myblog::Application.routes.draw do
+  devise_for :users
+  as :user do
+    get "/login" => "devise/sessions#new"
+  end
+
   resources :attachments 
   
   resources :isos
@@ -18,6 +23,7 @@ Myblog::Application.routes.draw do
   resources :libraries
  
   get 'search', to: 'search'
+  get 'users', to: 'users#index'
 
   root 'search#search'
 end

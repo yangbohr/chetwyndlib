@@ -1,5 +1,6 @@
 class DrawingsController < ApplicationController
   before_action :set_drawing, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /drawings
   # GET /drawings.json
@@ -12,7 +13,7 @@ class DrawingsController < ApplicationController
       @drawings = @search.results
     else 
       order = params[:order] || :created_at
-      @drawings = Drawing.order(order.to_sym).paginate(:page => params[:page], :per_page => 15)
+      @drawings = Drawing.order("#{order} DESC").paginate(:page => params[:page], :per_page => 15)
     end
   end
 
@@ -40,7 +41,6 @@ class DrawingsController < ApplicationController
   # POST /drawings.json
   def create
     @drawing = Drawing.new(drawing_params)
-    binding.pry
     respond_to do |format|
       if @drawing.save
         format.html { redirect_to @drawing, notice: 'Drawing was successfully created.' }
@@ -84,6 +84,6 @@ class DrawingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def drawing_params
-      params.require(:drawing).permit(:discipline, :order, :tembec_drawing, :vender, :vendor_drawing_number, :sheet_number, :revision, :title, :date, :equipment_number, :cad, :paper, :notes, :hanging)
+      params.require(:drawing).permit(:discipline, :draft_order, :tembec_drawing, :vender, :vendor_drawing_number, :sheet_number, :revision, :title, :date, :equipment_number, :cad, :paper, :notes, :hanging, :attachment)
     end
 end

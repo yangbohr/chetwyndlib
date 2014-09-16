@@ -5,8 +5,10 @@ ruby '2.0.0'
 gem 'rails', '4.0.2'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
-gem "paperclip", "~> 4.1"
+gem "paperclip", "~> 4.2"
 gem 'pry'
+
+gem 'devise'
 # Use sqlite3 as the database for Active Record
 gem 'sunspot_rails'
 # This is an optional packaged Solr:
@@ -14,7 +16,8 @@ gem 'sunspot_rails'
    gem 'sunspot_solr'
  end
 gem 'pg'
-gem 'spreadsheet', '~> 0.9.7'
+
+gem 'spreadsheet'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

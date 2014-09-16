@@ -1,5 +1,5 @@
 task :populate_database => :environment do
-  require 'spreadsheet'
+ # require 'spreadsheet'
   
   book = Spreadsheet.open 'di.xls'
   book.worksheets.each do |sheet| 

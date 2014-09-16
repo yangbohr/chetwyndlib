@@ -1,4 +1,16 @@
-<h1>Listing Work Orders</h1>
+<h1>Work Orders</h1>
+
+<div><%= link_to  '<span class="glyphicon glyphicon-plus"> </span>  Add A New Work Order'.html_safe, new_work_order_path, :class => "btn btn-primary dropdown-toggle" %></div>
+  <div class='search-bar'>
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+         <input type="text" class="form-control search-space" placeholder="Search">
+         <button type="submit" class="btn btn-default search-submit"><span class="glyphicon glyphicon-search"></span> Search</button>
+      </div>
+    </form>
+  </div>
+     <%= will_paginate @work_orders, renderer: BootstrapPagination::Rails %>
+
 
 <table  class='table drawing table-striped'>
   <thead>
@@ -19,14 +31,4 @@
     <% end %>
   </tbody>
 
-  <div><%= link_to 'Add A Work Order', new_work_order_path, :class => "btn btn-primary dropdown-toggle" %></div>
-  <div class='search-bar'>
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-         <input type="text" class="form-control search-space" placeholder="Search">
-         <button type="submit" class="btn btn-default search-submit">Search</button>
-      </div>
-    </form>
-  </div>
-     <%= will_paginate @work_orders, renderer: BootstrapPagination::Rails %>
 </table>

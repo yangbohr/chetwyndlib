@@ -17,17 +17,16 @@
     <tr>
       <th><%= link_to 'Discipline', drawings_path(order: 'discipline') %></th>
       <th><%= link_to 'Area', drawings_path(order: 'area')%></th>
-      <th><%= link_to 'Order', drawings_path(order: 'order') %></th>
+      <th><%= link_to 'Order', drawings_path(order: 'draft_order') %></th>
       <th><%= link_to 'Tembec drawing', drawings_path(order: 'tembec_drawing') %></th>
       <th><%= link_to 'Vendor', drawings_path(order: 'vender')%></th>
-      <th>Revision</th>
       <th><%= link_to 'Title', drawings_path(order: 'title') %></th>
       <th><%= link_to 'Date', drawings_path(order: 'date') %></th>
+      <th><%= link_to 'Created At', drawings_path(order: 'created_at') %></th>
       <th><%= link_to 'Equipment Number', drawings_path(order: 'equipment_number') %></th>
       <th>Cad</th>
       <th>Paper</th>
       <th>Notes</th>
-      <th>Hanging</th>
     </tr>
   </thead>
 
@@ -36,21 +35,22 @@
       <tr>
         <td><%= drawing.discipline %></td>
         <td><%= drawing.area %></td>
-        <td><%= drawing.order %></td>
+        <td><%= drawing.draft_order %></td>
         <td><%= drawing.tembec_drawing %></td>
         <td><%= drawing.vender %></td>
-        <td><%= drawing.revision %></td>
         <td><%= link_to drawing.title, drawing_path(drawing) %></td>
         <td><%= drawing.date %></td>
+        <td><%= drawing.created_at.to_date %></td>
         <td><%= drawing.equipment_number %></td>
-        <td><%= if drawing.cad 
-                  link_to 'Download', new_attachment_path    
+        <td><%= if drawing.attachment.present? 
+                  link_to drawing.attachment_file_name, drawing.attachment.url(:original, false) 
                 else 
-                  link_to 'Upload', new_attachment_path    
+                  link_to 'Upload', edit_drawing_path(drawing)    
                 end %></td>
         <td><%= drawing.paper %></td>
         <td><%= drawing.notes %></td>
-        <td><%= drawing.hanging %></td>
+        <td><%= link_to 'edit', edit_drawing_path(drawing) %></td>
+        <td><%= link_to 'delete', drawing_path(drawing), data: {:confirm => 'Are you sure?', method: :delete} %></td>
       </tr>
     <% end %>
   </tbody>
