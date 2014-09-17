@@ -1,6 +1,6 @@
 <h1>Engineering Drawings</h1>
 
-<div><%= link_to '<span class="glyphicon glyphicon-plus"> </span>  Add A New Drawing'.html_safe, new_drawing_path, :class => "btn btn-primary dropdown-toggle" %></div>
+<div><%= link_to '<span class="glyphicon glyphicon-plus"> </span>  Add A New Drawing'.html_safe, new_drawing_path, :class => "btn btn-primary dropdown-toggle" if current_user.role == 'admin'%></div>
 <div class='search-bar'>
   <form class="navbar-form navbar-left" role="search">
     <div class="form-group">
@@ -45,12 +45,14 @@
         <td><%= if drawing.attachment.present? 
                   link_to drawing.attachment_file_name, drawing.attachment.url(:original, false) 
                 else 
-                  link_to 'Upload', edit_drawing_path(drawing)    
+                  link_to 'Upload', edit_drawing_path(drawing) if current_user.role == 'admin'    
                 end %></td>
         <td><%= drawing.paper %></td>
         <td><%= drawing.notes %></td>
+        <% if current_user.role == 'admin' %>
         <td><%= link_to 'edit', edit_drawing_path(drawing) %></td>
         <td><%= link_to 'delete', drawing_path(drawing), data: {:confirm => 'Are you sure?', method: :delete} %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

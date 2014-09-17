@@ -1,7 +1,28 @@
-<table>
+<table class='table'>
+<tr>
+  <th>Email</th>
+  <th>Last Name</th>
+  <th>First Name</th>
+  <th>Role</th>
+  <th></th>
+</tr>
 <% @users.each do |user| %>
 <tr>
   <td><%= user.email %></td>
+  <td><%= user.last_name %></td>
+  <td><%= user.first_name %></td>
+  <td><%= user.role %></td>
+  <td><%= link_to 'Delete' if user.role != 'admin' %></td>
 </tr>
 <% end %>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><%= link_to 'Add A User', new_user_url, class: 'btn btn-primary' %> </td>
+</tr>
+</table>
+
+
 

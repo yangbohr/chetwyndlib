@@ -1,0 +1,57 @@
+<h1>Listing instruments</h1>
+
+<div><%= link_to '<span class="glyphicon glyphicon-plus"> </span>  Add A New Instrument'.html_safe, new_instrument_path, :class => "btn btn-primary dropdown-toggle" if current_user.role == 'admin'%></div>
+<div class='search-bar'>
+  <form class="navbar-form navbar-left" role="search">
+    <div class="form-group">
+      <input type="text" name='search' class="form-control search-space" placeholder="Search" value='<%= params[:search]%>'>
+      <button type="submit" class="btn btn-default search-submit"><span class="glyphicon glyphicon-search"></span> Search</button>
+    </div>
+  </form>
+</div>
+
+<div class='page-bar'><%= will_paginate @instruments, renderer: BootstrapPagination::Rails %></div>
+
+<table class='table drawing table-striped'>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Tag No.</th>
+      <th>Description</th>
+      <th>Manufacturer</th>
+      <th>Model No.</th>
+      <th>Service Name</th>
+      <th>I/O Type</th>
+      <th>Location</th>
+      <th>Instrument Range</th>
+      <th>Set Point </th>
+      <th>Eng Unit </th>
+      <th>Revision </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @instruments.each do |i| %>
+      <tr>
+        <td><%= i.item %></td>
+        <td><%= i.tag_no %></td>
+        <td><%= i.description %></td>
+        <td><%= i.manufacturer %></td>
+        <td><%= i.model_no %></td>
+        <td><%= i.service_name %></td>
+        <td><%= i.io_type  %></td>
+        <td><%= i.location %></td>
+        <td><%= i.instrument_range %></td>
+        <td><%= i.setpoint %></td>
+        <td><%= i.eng_unit %></td>
+        <td><%= i.revision %></td>
+        <% if current_user.role == 'admin' %>
+        <td><%= link_to 'edit', edit_instrument_path(i) %></td>
+        <td><%= link_to 'delete', instrument_path(i), data: {:confirm => 'Are you sure?', method: :delete} %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+

@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: 1
+  tag_no: MyString
+  description: MyString
+  manufacturer: MyString
+  model_no: MyString
+  service_name: MyString
+  io_type: MyString
+  location: MyString
+  instrument_range: MyString
+  setpoint: MyString
+  eng_unit: MyString
+  remark: MyString
+  revision: MyString
+
+two:
+  item: 1
+  tag_no: MyString
+  description: MyString
+  manufacturer: MyString
+  model_no: MyString
+  service_name: MyString
+  io_type: MyString
+  location: MyString
+  instrument_range: MyString
+  setpoint: MyString
+  eng_unit: MyString
+  remark: MyString
+  revision: MyString

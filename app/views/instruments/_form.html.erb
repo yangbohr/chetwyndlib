@@ -1,0 +1,56 @@
+<%= form_for(@instrument) do |f| %>
+  <% if @instrument.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@instrument.errors.count, "error") %> prohibited this instrument from being saved:</h2>
+
+      <ul>
+      <% @instrument.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table class='table'> 
+<tr>
+<td>Item</td>
+<td><input type='field' name='instrument[item]' value= <%= @instrument.item %>></input></td>
+<td>Tag No.</td>
+<td><input type='field' name='instrument[tag_no]' value= <%= @instrument.tag_no %>></input></td>
+<tr>
+<tr>
+<td>Description</td>
+<td><input type='field' name='instrument[description]' value= <%= @instrument.description %>></input></td>
+<td>Manufacturer</td>
+<td><input type='field' name='instrument[manufacturer]' value= <%= @instrument.manufacturer %>></input></td>
+</tr>
+<tr>
+<td>Model Number</td>
+<td><input type='field' name='instrument[model_no]' value= <%= @instrument.model_no %>></input></td>
+<td>Service Name</td>
+<td><input type='field' name='instrument[service_name]' value= <%= @instrument.service_name %>></input></td>
+</tr>
+<tr>
+<td>I/O type</td>
+<td><input type='field' name='instrument[io_type]' value= <%= @instrument.io_type %>></input></td>
+<td>Location</td>
+<td><input type='field' name='instrument[location]' value= <%= @instrument.location %>></input></td>
+</tr>
+<tr>
+<td>Instrument Range</td>
+<td><input type='field' name='instrument[instrument_range]' value= <%= @instrument.instrument_range %>></input></td>
+<td>Set Point</td>
+<td><input type='field' name='instrument[setpoint]' value= <%= @instrument.setpoint %>></input></td>
+</tr>
+<tr>
+<td>Eng Unit</td>
+<td><input type='field' name='instrument[eng_unit]' value= <%= @instrument.eng_unit %>></input></td>
+<td>Revision</td>
+<td><input type='field' name='instrument[revision]' value= <%= @instrument.revision %>></input></td>
+</tr>
+</table>
+
+  <div class="actions">
+    <%= f.submit 'Create Instrument', :class => 'btn btn-primary' %>
+  </div>
+<% end %>
+</br>

@@ -1,0 +1,52 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this equipment_manual from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name%><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :passowrd %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <b>Password Confirmation</b>
+    </br>
+    <input type='password' name='password_confirmation'></input>
+  </div>
+  </br>
+  <div class='field'%>
+  <b>Select A Role</b>
+  </br>
+  <b>Admin can edit files/users</b>
+  </br>
+  <b>Viewer can only view files</b>
+  </br>
+  <select name=role>
+   <option value='admin'>Admin</option>
+   <option value='viewer'>Viewer</option>
+  </select>
+  </div>
+  </br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
