@@ -105,6 +105,10 @@
   <%= @drawing.hanging %>
 </td>
 </tr>
+<tr>
+<td>Last Edited By</td>
+<td><%= @drawing.last_editor %> </td>
+</tr>
 </table>
 
 <%= link_to 'Edit', edit_drawing_path(@drawing) if ['admin','superadmin'].include? current_user.role  %> |

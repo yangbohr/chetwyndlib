@@ -27,6 +27,7 @@
       <th>Set Point </th>
       <th>Eng Unit </th>
       <th>Revision </th>
+      <th>Last Editor </th>
     </tr>
   </thead>
 
@@ -45,6 +46,7 @@
         <td><%= i.setpoint %></td>
         <td><%= i.eng_unit %></td>
         <td><%= i.revision %></td>
+        <td><%= i.remark %></td>
         <% if current_user.admin? %>
         <td><%= link_to 'edit', edit_instrument_path(i) %></td>
         <td><%= link_to 'delete', instrument_path(i), data: {:confirm => 'Are you sure?', method: :delete} %></td>
