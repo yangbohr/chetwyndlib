@@ -12,9 +12,7 @@ gem 'devise'
 # Use sqlite3 as the database for Active Record
 gem 'sunspot_rails'
 # This is an optional packaged Solr:
- group :test, :development do
-   gem 'sunspot_solr'
- end
+gem 'sunspot_solr'
 gem 'pg'
 
 gem 'spreadsheet'
