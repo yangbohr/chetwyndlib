@@ -45,7 +45,7 @@
                   link_to 'Upload', edit_drawing_path(drawing) if current_user.admin?    
                 end %></td>
         <td><%= drawing.last_editor %></td>
-        <% if current_user.role == 'admin' %>
+        <% if current_user.admin? %>
         <td><%= link_to 'edit', edit_drawing_path(drawing) %></td>
         <td><%= link_to 'delete', drawing_path(drawing), data: {:confirm => 'Are you sure?', method: :delete} %></td>
         <% end %>
