@@ -1,6 +1,6 @@
 <h1>Listing instruments</h1>
 
-<div><%= link_to '<span class="glyphicon glyphicon-plus"> </span>  Add A New Instrument'.html_safe, new_instrument_path, :class => "btn btn-primary dropdown-toggle" if current_user.role == 'admin'%></div>
+<div><%= link_to '<span class="glyphicon glyphicon-plus"> </span>  Add A New Instrument'.html_safe, new_instrument_path, :class => "btn btn-primary dropdown-toggle" if current_user.admin? %></div>
 <div class='search-bar'>
   <form class="navbar-form navbar-left" role="search">
     <div class="form-group">

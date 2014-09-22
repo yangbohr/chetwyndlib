@@ -20,9 +20,8 @@ class RegistrationsController < ApplicationController
 
   def destroy
     user = User.find(params[:id])
-    if user.destroy
+    user.destroy
     redirect_to users_url
-    end
   end
 
 
