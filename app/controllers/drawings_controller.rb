@@ -43,7 +43,7 @@ class DrawingsController < ApplicationController
     @drawing = Drawing.new(drawing_params)
     respond_to do |format|
       if @drawing.save
-        @drawing.update(:last_editor, current_user.account)
+        @drawing.update_attribute(:last_editor, current_user.account)
         format.html { redirect_to @drawing, notice: 'Drawing was successfully created.' }
         format.json { render action: 'show', status: :created, location: @drawing }
       else

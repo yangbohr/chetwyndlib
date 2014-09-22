@@ -36,7 +36,7 @@ class InstrumentsController < ApplicationController
 
     respond_to do |format|
       if @instrument.save
-        @insturment.update_attribute(:remark, current_user.account)
+        @instrument.update_attribute(:remark, current_user.account)
         format.html { redirect_to @instrument, notice: 'Instrument was successfully created.' }
         format.json { render action: 'show', status: :created, location: @instrument }
       else
@@ -51,7 +51,7 @@ class InstrumentsController < ApplicationController
   def update
     respond_to do |format|
       if @instrument.update(instrument_params)
-        @insturment.update_attribute(:remark, current_user.account)
+        @instrument.update_attribute(:remark, current_user.account)
         format.html { redirect_to @instrument, notice: 'Instrument was successfully updated.' }
         format.json { head :no_content }
       else
