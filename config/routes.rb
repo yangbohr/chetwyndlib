@@ -1,10 +1,8 @@
 Myblog::Application.routes.draw do
   resources :instruments
-
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
 
   resources :attachments 
-  
   resources :isos
 
   resources :catalogues
@@ -24,5 +22,6 @@ Myblog::Application.routes.draw do
   get 'search', to: 'search'
   resources :users
   root 'search#search'
+  delete 'user/:id', to: 'registrations#destroy'
 
 end

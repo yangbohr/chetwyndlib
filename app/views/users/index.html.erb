@@ -1,6 +1,6 @@
 <table class='table'>
 <tr>
-  <th>Email</th>
+  <th>Account</th>
   <th>Last Name</th>
   <th>First Name</th>
   <th>Role</th>
@@ -8,11 +8,14 @@
 </tr>
 <% @users.each do |user| %>
 <tr>
-  <td><%= user.email %></td>
+  <td><%= user.account %></td>
   <td><%= user.last_name %></td>
   <td><%= user.first_name %></td>
   <td><%= user.role %></td>
-  <td><%= link_to 'Delete' if user.role != 'admin' %></td>
+  <td><% if current_user.role == 'superadmin' %>
+      <%= link_to 'Delete', {:controller => :registrations, :action => :destroy, :id => user.id}, :method => :delete  %>
+      <% end %>
+</td>
 </tr>
 <% end %>
 <tr>
@@ -20,7 +23,7 @@
 <td></td>
 <td></td>
 <td></td>
-<td><%= link_to 'Add A User', new_user_url, class: 'btn btn-primary' %> </td>
+<td><%= link_to 'Add A User', new_user_registration_url, class: 'btn btn-primary' %> </td>
 </tr>
 </table>
 

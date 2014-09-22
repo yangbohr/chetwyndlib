@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user account from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this equipment_manual from being saved:</h2>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.label :account %><br>
+    <%= f.text_field :account %>
   </div>
   <div class="field">
     <%= f.label :first_name %><br>
@@ -40,9 +40,9 @@
   </br>
   <b>Viewer can only view files</b>
   </br>
-  <select name='role'>
-   <option value='viewer'>Viewer</option>
+  <select name=user[role]>
    <option value='admin'>Admin</option>
+   <option value='viewer'>Viewer</option>
   </select>
   </div>
   </br>

@@ -1,7 +1,6 @@
 task :populate_database => :environment do
  # require 'spreadsheet'
 
-=begin  
   book = Spreadsheet.open 'di.xls'
   book.worksheets.each do |sheet| 
     sheet.each do |row|
@@ -25,7 +24,6 @@ task :populate_database => :environment do
       drawing.save
     end
   end
-=end
 
   book = Spreadsheet.open 'ii.xls'
   book.worksheets.each do |sheet| 
@@ -34,7 +32,6 @@ task :populate_database => :environment do
       ii = Instrument.new 
       ii.item = row[0].to_i
       ii.tag_no = row[1]
-      puts row[1]
       ii.description = row[2]
       ii.manufacturer = row[3]
       ii.model_no = row[4]
@@ -46,8 +43,6 @@ task :populate_database => :environment do
       ii.eng_unit = row[10]
       ii.remark = row[11]
       ii.revision = row[12]
-      ii.save
-      puts '1'
       break if row[0].nil?
     end
   end

@@ -1,74 +1,111 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+<table class='table'>
+<tr>
+<td>
   <strong>Discipline:</strong>
+</td>
+<td>
   <%= @drawing.discipline %>
-</p>
+</td>
 
-<p>
-  <strong>Order:</strong>
-  <%= @drawing.draft_order %>
-</p>
+<td>
+  <strong>Title</strong>
+</td>
 
-<p>
-  <strong>Tembec drawing:</strong>
-  <%= @drawing.tembec_drawing %>
-</p>
-
-<p>
-  <strong>Vender:</strong>
-  <%= @drawing.vender %>
-</p>
-
-<p>
-  <strong>Vendor drawing number:</strong>
-  <%= @drawing.vendor_drawing_number %>
-</p>
-
-<p>
-  <strong>Sheet number:</strong>
-  <%= @drawing.sheet_number %>
-</p>
-
-<p>
-  <strong>Revision:</strong>
-  <%= @drawing.revision %>
-</p>
-
-<p>
-  <strong>Title:</strong>
+<td>
   <%= @drawing.title %>
-</p>
+</td>
+</tr>
 
-<p>
+<tr>
+<td>
+  <strong>Tembec drawing:</strong>
+</td>
+<td>
+  <%= @drawing.tembec_drawing %>
+</td>
+<td>
+  <strong>Vender:</strong>
+</td>
+<td>
+  <%= @drawing.vender %>
+</td>
+</tr>
+<tr>
+<td>
+  <strong>Vendor drawing number:</strong>
+</td>
+<td>
+  <%= @drawing.vendor_drawing_number %>
+</td>
+<td>
+  <strong>Sheet number:</strong>
+</td>
+<td>
+  <%= @drawing.sheet_number %>
+</td>
+</tr>
+<tr>
+<td>
+  <strong>Revision:</strong>
+</td>
+<td>
+  <%= @drawing.revision %>
+</td>
+
+<td>
+  <strong>Order</strong>
+</td>
+<td>
+  <%= @drawing.draft_order %>
+</td>
+
+</tr>
+<tr>
+<td>
   <strong>Date:</strong>
+</td>
+<td>
   <%= @drawing.date %>
-</p>
+</td>
 
-<p>
+<td>
   <strong>Equipment number:</strong>
+</td>
+<td>
   <%= @drawing.equipment_number %>
-</p>
-
-<p>
+</td>
+<tr>
+<td>
   <strong>Cad:</strong>
-  <%= @drawing.cad %>
-</p>
-
-<p>
+</td>
+<td>
+  <%= link_to @drawing.attachment_file_name, @drawing.attachment.url %>
+</td>
+<td>
   <strong>Paper:</strong>
+</td>
+<td>
   <%= @drawing.paper %>
-</p>
+</td>
 
-<p>
+</tr>
+
+<tr>
+<td>
   <strong>Notes:</strong>
+</td>
+<td>
   <%= @drawing.notes %>
-</p>
-
-<p>
+</td>
+<td>
   <strong>Hanging:</strong>
+</td>
+<td>
   <%= @drawing.hanging %>
-</p>
+</td>
+</tr>
+</table>
 
-<%= link_to 'Edit', edit_drawing_path(@drawing) %> |
+<%= link_to 'Edit', edit_drawing_path(@drawing) if ['admin','superadmin'].include? current_user.role  %> |
 <%= link_to 'Back', drawings_path %>
